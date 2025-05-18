@@ -26,7 +26,9 @@ async function run() {
     await client.connect();
 
     // data Collection in the db
-    const coffeeCollection = client.db('coffeeDB').collection('coffees')
+    const coffeeCollection = client.db('coffeeDB').collection('coffees');
+    const userCollection = client.db('coffeeDB').collection('users');
+
 
     // get that data in the server site url
     app.get('/coffees', async(req, res) =>{
@@ -72,6 +74,9 @@ async function run() {
       const result = await coffeeCollection.deleteOne(query);
       res.send(result);
     })
+
+    // USER RELATED API'S
+    app.post('/users', a)
 
     
     await client.db("admin").command({ ping: 1 });
